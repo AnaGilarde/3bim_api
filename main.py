@@ -132,7 +132,7 @@ def remover_produto(pets_id: int, db: Session = Depends(get_db)):
 def atualizar_pet(pets_id: int, dados: PetsCreate, db:
 Session = Depends(get_db)):
  pets = db.query(PetsDB).filter(PetsDB.id == pets_id).first()
- if pet is None:
+ if pets is None:
      raise HTTPException(status_code=404, detail='Pets não encontrado')
  pets.nome = dados.nome
  pets.especie = dados.especie

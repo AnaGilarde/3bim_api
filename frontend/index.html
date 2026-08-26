@@ -21,6 +21,24 @@
                 });
             })
             .catch(erro => console.error('Erro ao buscar produtos:', erro));
+
+          
+            // ------- pets
+            fetch('http://127.0.0.1:8000/pets')
+            .then(resposta => resposta.json())
+            .then(pets => {
+                const lista = document.getElementById('lista-pets');
+                pets.forEach(pets => {
+                    const item = document.createElement('li');
+                    item.textContent =
+                        `${pets.nome}, ${pets.especie}, ${pets.raca}, ${pets.idade})`;
+                    lista.appendChild(item);
+                });
+            })
+            .catch(erro => console.error('Erro ao buscar pets:', erro));
+
     </script>
+
+    
 </body>
 </html>
